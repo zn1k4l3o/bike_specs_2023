@@ -1,0 +1,22 @@
+footer {
+    width:100vw;
+    height:100px;
+    background-color: #d9d9d9;
+
+    div {
+        display:flex;
+        max-width:1136px;
+        width:100%;
+        height:100%;
+        justify-content: space-between;
+        align-items: center;
+        margin:0 auto;
+
+        section {
+            display: flex;
+            max-width:100px;
+            width:100%;
+            justify-content: space-between;
+        }
+    }
+}
