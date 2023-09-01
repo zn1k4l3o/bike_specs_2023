@@ -107,10 +107,16 @@ a {
   }
 }
 */
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
+
 :root {
   --primary-color: #1947E8;
+  --border-color:#969696;
 }
+body {
+  font-family: 'Blinker', sans-serif;
 
+}
 
 * {
   margin:0;
