@@ -1,4 +1,4 @@
-import "./css/home link box.scss"
+import "./css/homeLinkBox.scss"
 
 export default function LinkBox (
     {

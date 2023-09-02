@@ -1,8 +1,14 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import "./css/navbar.scss";
+import { usePathname } from "next/navigation";
+
 
 export default function Navbar() {
+
+    let pathname = usePathname();
     return (
         <header className="navbar">
             <div>
@@ -18,13 +24,13 @@ export default function Navbar() {
                 </Link>
                 <ul>
                     <li>
-                        <Link href="/">HOME</Link>
+                        <Link href="/" className={pathname === "/" ? "chosen-link" : "waiting-link"}>HOME</Link>
                     </li>
                     <li>
-                        <Link href="/a2bikes">A2 BIKES</Link>
+                        <Link href="/a2bikes" className={pathname === "/a2bikes" ? "chosen-link" : "waiting-link"}>A2 BIKES</Link>
                     </li>
                     <li>
-                        <Link href="/manufacturers">MANUFACTURERS</Link>
+                        <Link href="/manufacturers" className={pathname == "/manufacturers" ? "chosen-link" : "waiting-link"}>MANUFACTURERS</Link>
                     </li>
                 </ul>
             </div>

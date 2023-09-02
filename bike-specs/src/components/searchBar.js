@@ -1,6 +1,6 @@
 "use client"
 
-import "./css/search bar.scss"
+import "./css/searchBar.scss"
 import {useRouter} from "next/navigation"
 
 export default function SearchBar () {

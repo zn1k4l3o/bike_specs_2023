@@ -1,4 +1,4 @@
-import "./css/category button.scss"
+import "./css/categoryButton.scss"
 import Link from "next/link";
 
 export default function CategoryButton ({category}) {

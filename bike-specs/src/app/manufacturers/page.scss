@@ -1,0 +1,8 @@
+.manufacturer-grid {
+    display:grid;
+    column-gap: 16px;
+    max-width:1136px;
+    width:100%;
+    margin:48px auto 32px auto;
+    grid-template-columns: repeat(8, 128px);
+}

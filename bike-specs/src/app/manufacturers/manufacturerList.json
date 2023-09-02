@@ -1,0 +1,249 @@
+{
+    "alfabet":[
+        {
+            "letter":"A",
+            "make":[
+                "Adler",
+                "AJP",
+                "AJS",
+                "Alfer",
+                "Aprilia",
+                "Ariel",
+                "Arlen Ness",
+                "ATK"
+            ]
+        },
+        {
+            "letter":"B",
+            "make":[
+                "BMW",
+                "Bakker",
+                "Benneli",
+                "Bajai",
+                "Beta",
+                "Big Bear",
+                "Barigo",
+                "Big Dog",
+                "Bimota",
+                "BMS Choppers",
+                "Boss Hoss",
+                "Boxer",
+                "Brammo",
+                "Britten",
+                "Brixton Motorcycles",
+                "BSA"
+            ]
+        },
+        {
+            "letter":"C",
+            "make":[
+                "Cagiva",
+                "Campagna",
+                "CCM",
+                "CF Moto",
+                "CR&S",
+                "CZ Motorcycles",
+                "Can-Am"
+            ]
+        },
+        {
+            "letter":"D",
+            "make":[
+                "Daelim",
+                "Derbi",
+                "Deus",
+                "DP Customs",
+                "Ducati"
+            ]
+        },
+        {
+            "letter":"E",
+            "make":[
+                "Excelsior",
+                "Exile"
+            ]
+        },
+        {
+            "letter":"G",
+            "make":[
+                "GASGAS",
+                "Ghezi Brian",
+                "Gilera",
+                "GIMA"
+            ]
+        },
+        {
+            "letter":"H",
+            "make":[
+                "Harley-Davidson",
+                "Harris",
+                "Hartford",
+                "HDT USA",
+                "Hesketh",
+                "Hero",
+                "Highland",
+                "Honda",
+                "Horex",
+                "HPN",
+                "Husaberg",
+                "Husqvarna",
+                "Hyosung"
+            ]
+        },
+        {
+            "letter":"I",
+            "make":[
+                "Indian",
+                "Italjet"
+            ]
+        },
+        {
+            "letter":"J",
+            "make":[
+                "Jawa",
+                "Junak"
+            ]
+        },
+        {
+            "letter":"K",
+            "make":[
+                "Kawasaki",
+                "KTM",
+                "KYMCO"
+            ]
+        },
+        {
+            "letter":"L",
+            "make":[
+                "Laverda",
+                "Lazareth",
+                "Lehman Trikes",
+                "LIFAN",
+                "Lord Drake Kustoms"
+            ]
+        },
+        {
+            "letter":"M",
+            "make":[
+                "Magni",
+                "Maico",
+                "Mash",
+                "Matchless",
+                "Matt Hotch",
+                "Megelli",
+                "Midual",
+                "Mission",
+                "Molot",
+                "Mondial",
+                "Moto Guzzi",
+                "Moto Morini",
+                "Mr Martini",
+                "MTT",
+                "Münch",
+                "MV Agusta",
+                "MZ"
+            ]
+        },
+        {
+            "letter":"N",
+            "make":[
+                "NCR",
+                "Norton",
+                "NSU"
+            ]
+        },
+        {
+            "letter":"O",
+            "make":[
+                "OCC"
+            ]
+        },
+        {
+            "letter":"P",
+            "make":[
+                "Paton",
+                "Peugeot",
+                "Piaggio"
+            ]
+        },
+        {
+            "letter":"R",
+            "make":[
+                "Revival Cycles",
+                "Rickman",
+                "Roehr",
+                "Roland Sands",
+                "Royal Enfield",
+                "Rucker"
+            ]
+        },
+        {
+            "letter":"S",
+            "make":[
+                "Sachs",
+                "Saxon",
+                "Shaw Speed",
+                "Sherco",
+                "Sunbeam",
+                "Suzuki",
+                "SWM",
+                "SYM"
+            ]
+        },
+        {
+            "letter":"T",
+            "make":[
+                "Titan",
+                "TM Racing",
+                "Triumph",
+                "TVS"
+            ]
+        },
+        {
+            "letter":"U",
+            "make":[
+                "Ural"
+            ]
+        },
+        {
+            "letter":"V",
+            "make":[
+                "Velocette",
+                "Vespa",
+                "Victory",
+                "Vilner",
+                "Vincent",
+                "VOR",
+                "Voxan",
+                "Vyrus"
+            ]
+        },
+        {
+            "letter":"W",
+            "make":[
+                "Walt Siegl",
+                "Walz",
+                "Wrenchmonkees",
+                "Wunderlich"
+            ]
+        },
+        {
+            "letter":"X",
+            "make":[
+                "XTR"
+            ]
+        },
+        {
+            "letter":"Y",
+            "make":[
+                "Yamaha"
+            ]
+        },
+        {
+            "letter":"Z",
+            "make":[
+                "Zero"
+            ]
+        }
+    ]
+}

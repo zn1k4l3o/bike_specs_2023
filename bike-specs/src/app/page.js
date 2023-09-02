@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import'./page.scss'
-import SearchBar from '@/components/search bar'
-import CategoryButton from '@/components/category button'
+import SearchBar from '@/components/searchBar'
+import CategoryButton from '@/components/categoryButton'
 import Image from 'next/image'
-import LinkBox from '@/components/home link box'
+import LinkBox from '@/components/homeLinkBox'
 
 const categoryList = [
   "Adventure",
