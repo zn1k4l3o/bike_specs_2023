@@ -1,0 +1,36 @@
+.a2bikes-page {
+    width:100%;
+
+    .a2bikes-about {
+        max-width:1136px;
+        width:100%;
+        height: 392px;
+        margin:48px auto 48px auto;
+        display: flex;
+        justify-content: space-between;
+
+        aside {
+            max-width:560px;
+            width:50%;
+            height:100%;
+            position: relative;
+        }
+
+        article {
+            max-width:576px;
+            width:50%;
+            padding-left:16px;
+            box-sizing: border-box;
+      
+            h3 {
+              font-size: 20px;
+              font-weight: 400;
+              margin-bottom: 8px;
+            }
+      
+            p {
+              font-size: 16px;
+            }
+        }
+    }
+}
