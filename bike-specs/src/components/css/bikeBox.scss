@@ -1,0 +1,48 @@
+.bike-box {
+    width:272px;
+    height:288px;
+    border:1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    text-decoration: none;
+    color:black;
+
+    .image-section {
+        width:256px;
+        height:220px;
+        position: relative;
+    }
+    
+    h3 {
+        font-size: 20px;
+        height:20px;
+        width:256px;
+        margin-top: 8px;
+        margin-bottom: 4px;
+        font-weight: 400;
+        text-overflow:ellipsis;
+        white-space:nowrap; 
+        overflow: hidden;
+    }
+
+    .bike-type-year {
+        display:flex;
+        justify-content: space-between;
+        height: fit-content;
+
+        h4 {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        h5 {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
+
+.bike-box:hover {
+    cursor: pointer;
+}

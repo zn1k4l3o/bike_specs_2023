@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./page.scss";
+import BikeBox from "@/components/bikeBox";
 
 export default function A2Bikes () {
     return (
@@ -20,6 +21,10 @@ export default function A2Bikes () {
                     />
                 </aside>
             </section>
+            <div className="bike-grid">
+                    <BikeBox model={"Svartpilen KLR 650"} type="Cafe Racer" year="2022"/>
+                    
+            </div>
         </div>
     );
 }
