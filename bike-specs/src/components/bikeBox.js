@@ -12,8 +12,8 @@ export default function BikeBox({
         <Link href={"/"+model+year} className="bike-box">
             <div className="image-section">
                 <Image style={{objectFit:"cover"}}
-                    src="/svartpilen_401.jpg"
-                    alt="Svartpilen 401"
+                    src={image}
+                    alt={model+year}
                     fill
                     sizes="100vw"
                     priority

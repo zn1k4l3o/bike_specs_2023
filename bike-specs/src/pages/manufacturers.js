@@ -1,6 +1,6 @@
 import ManufacturerLetter from "@/components/manufacturerLetter";
 import manufacturerList from "./manufacturerList.json";
-import "./page.scss"
+import "../styles/manufacturers.scss";
 import Image from "next/image";
 
 export default function Manufacturers() {

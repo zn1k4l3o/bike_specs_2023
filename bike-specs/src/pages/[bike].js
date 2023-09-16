@@ -1,7 +1,8 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import "bike-specs/src/styles/bike.scss"
+import "../styles/bike.scss";
+
 
 export default function BikePage() {
 
