@@ -1,9 +1,6 @@
 import Image from "next/image";
 import "../styles/a2bikes.scss";
 import BikeBox from "@/components/bikeBox";
-//import { GetBikes } from "@/api/getBikeInfo";
-///import clientPromise from "@/mongodb/mongodbInit";
-//import { GetServerSideProps } from "next";
 const { MongoClient } = require("mongodb");
 
 
@@ -14,8 +11,9 @@ export async function getServerSideProps() {
     await client.connect();
     const database = client.db('test');
     const bikeDB = database.collection('models_images');
-    const query = { Make:"Kawasaki" };
-    const bikeList = await bikeDB.find({}).limit(20).toArray();
+    const query = {Brand:"kawasaki" };
+    const projection = {Images: 0 };
+    const bikeList = await bikeDB.find(query).project(projection).limit(5).toArray();
     return {
         props: {
           bikeList: JSON.parse(JSON.stringify(bikeList)),
@@ -29,7 +27,7 @@ export async function getServerSideProps() {
 
 
 export default function A2Bikes (props) {
-    console.log(props.bikeList);
+    //console.log(props.bikeList);
 
     return (
         <div className="a2bikes-page">
@@ -52,10 +50,12 @@ export default function A2Bikes (props) {
             <div className="bike-grid">
                 {props.bikeList?.map((bike)=> <BikeBox 
                 key={bike._id}
+                id={bike._id}
                 model={bike.Model} 
                 type={bike.Category} 
                 year={bike.Year}
-                image={bike.Images[0]}/>)}
+                //image={bike.Images[0]}
+                />)}
             </div>
         </div>
     );

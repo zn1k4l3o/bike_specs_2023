@@ -8,7 +8,7 @@ export default function SearchBar () {
     
     function HandleEnter(value) {
 
-        router.push("/list/"+value);
+        router.push(value);
     }
     
 

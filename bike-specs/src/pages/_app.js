@@ -1,9 +1,16 @@
 import React from "react";
-import Layout from "../app/layout"; // Import your custom Layout component
 import RootLayout from "../app/layout";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
-  // Determine the layout based on the page component
+  // Add useEffect to fix the hydration issue
+  useEffect(() => {
+    // Remove the server-rendered styles to prevent the mismatch
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
+  }, []);
 
   return (
     <RootLayout>
