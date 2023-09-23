@@ -1,13 +1,46 @@
 import ManufacturerLetter from "@/components/manufacturerLetter";
-import manufacturerList from "./manufacturerList.json";
 import "../styles/manufacturers.scss";
 import Image from "next/image";
+import { MongoClient } from "mongodb";
 
-export default function Manufacturers() {
+export async function getServerSideProps() {
+    const client = new MongoClient(process.env.MONGODB_URI);
+  try {
+    await client.connect();
+    const database = client.db('test');
+    const brandsDB = database.collection('brands');
+    const projection = {_id : 0};
+    const brands = await brandsDB.find({}).project({_id : 0}).toArray();
+
+    return {
+        props: {
+          brands: JSON.parse(JSON.stringify(brands)),
+        },
+      };
+  } finally {
+    await client.close();
+  }
+  
+}
+
+export default function Manufacturers(props) {
+
+    var currLetter = props.brands[0].Brand.charAt(0).toUpperCase();
+    var letters = {};
+    letters[currLetter] = [];
+    props.brands.forEach(brand => {
+        if (brand.Brand.charAt(0).toUpperCase() === currLetter) letters[currLetter].push(brand.Brand);
+        else {
+            currLetter = brand.Brand.charAt(0).toUpperCase();
+            letters[currLetter] = [brand.Brand];
+        }
+    });
+    //console.log(letters);
+
     return (
         <div className="manufacturer-page">
             <div className="manufacturer-grid">
-                {manufacturerList.alfabet.map((a) => <ManufacturerLetter letter={a.letter} makeList={a.make.sort()}/>)}
+                {Object.keys(letters).map((a) => <ManufacturerLetter letter={a} makeList={letters[a].sort()} key={a}/>)}
             </div>
             <section className="manufacturer-about">
                 <aside>

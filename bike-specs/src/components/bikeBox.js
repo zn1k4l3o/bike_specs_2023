@@ -5,19 +5,26 @@ import Link from "next/link";
 
 export default function BikeBox({
     id,
+    brand,
     model,
     type,
     year,
+    powerHP,
 }) {
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const fullName = brand.charAt(0).toUpperCase() + brand.slice(1) + " " + model;
+    //console.log(fullName);
     useEffect(() => {
 
-      console.log('ID:', id); 
+      //console.log('ID:', id); 
 
         const fetchItem = async () => {
-            const response =await fetch(`/api/getImageById?itemId=${id}`);
+            let response =await fetch(`/api/getImageById?itemId=${id}`);
+            while (!response.ok) {
+              response =await fetch(`/api/getImageById?itemId=${id}`);
+            }
             const data = await response.json();
             setItem(data);
             setLoading(false);
@@ -25,36 +32,27 @@ export default function BikeBox({
         };
     
         fetchItem();
-        console.log(item);
 
 
-      }, id);
+      }, [id]);
     
-      
     return (
-      <>
-
-      {!loading ?
-
-        <Link href={"/"+model+year} className="bike-box">
+        <Link href={"/bikePage/"+id} className={powerHP > 46.9 ?"bike-box red":"bike-box"}>
+          {powerHP > 46.9 ? <div className="restrictor-mark"></div> : <></>}
           <div className="image-section">
               <Image style={{objectFit:"cover"}}
-                  //src={item.Images[0]}
-                  alt={model+year}
+                  src={!loading ? item.Images[0] : "/image_loading.png"}
+                  alt={brand+" "+model+" "+year}
                   fill
                   sizes="100vw"
                   priority
               />
           </div>
-          <h3>{model}</h3>
+          <h3>{fullName}</h3>
           <div className="bike-type-year">
               <h4>{type}</h4>
               <h5>{year}</h5>
           </div>
         </Link>
-
-        :"Loading..."
-      }
-      </>
     );
 }

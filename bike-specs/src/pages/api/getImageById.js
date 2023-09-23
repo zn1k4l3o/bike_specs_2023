@@ -1,33 +1,5 @@
 const { MongoClient,ObjectId  } = require("mongodb");
 
-/*
-export default async function handler(req, res) {
-  const { itemId } = req.query;
-  console.log(itemId);
-
-  const client = new MongoClient(process.env.MONGODB_URI);
-
-  try {
-    await client.connect();
-    const database = client.db('test');
-    const collection = database.collection('models_images');
-
-    const item = await collection.find({ _id: new ObjectId(itemId) });
-
-    console.log(item);
-
-
-    if (!item) {
-      throw new Error('Item not found');
-    }
-
-    return res.json(item);
-  } finally {
-    await client.close();
-  }
-}
-*/
-
 export default async function handler(req, res) {
   const { itemId } = req.query;
   //console.log('Request received for itemId:', itemId);
@@ -35,14 +7,45 @@ export default async function handler(req, res) {
   const client = new MongoClient(process.env.MONGODB_URI);
 
   try {
-    console.log('Connecting to MongoDB...');
+    //console.log('Connecting to MongoDB...');
     await client.connect();
-    console.log('Connected to MongoDB.');
+    //console.log('Connected to MongoDB.');
 
     const database = client.db('test');
     const collection = database.collection('models_images');
 
-    const item = await collection.findOne({ _id: new ObjectId(itemId) });
+    const projection = {
+      "Brand": 0,
+      "Model": 0,
+      "Year": 0,
+      "Category": 0,
+      "Rating": 0,
+      "Displacement (ccm)": 0,
+      "Power (hp)": 0,
+      "Torque (Nm)": 0,
+      "Engine cylinder": 0,
+      "Engine stroke": 0,
+      "Gearbox": 0,
+      "Bore (mm)": 0,
+      "Stroke (mm)": 0,
+      "Fuel capacity (lts)": 0,
+      "Fuel system": 0,
+      "Fuel control": 0,
+      "Cooling system": 0,
+      "Transmission type": 0,
+      "Dry weight (kg)": 0,
+      "Wheelbase (mm)": 0,
+      "Seat height (mm)": 0,
+      "Front brakes": 0,
+      "Rear brakes": 0,
+      "Front tire": 0,
+      "Rear tire": 0,
+      "Front suspension": 0,
+      "Rear suspension": 0,
+      "Color options": 0
+      };
+    const item = await collection.findOne({ _id: new ObjectId(itemId) },{ projection: projection });
+    //
 
     if (!item) {
       console.log('Item not found');
@@ -56,6 +59,7 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Internal server error' });
   } finally {
     await client.close();
-    console.log('MongoDB connection closed.');
+    //console.log('MongoDB connection closed.');
   }
 }
+

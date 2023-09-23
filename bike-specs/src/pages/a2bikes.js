@@ -3,17 +3,55 @@ import "../styles/a2bikes.scss";
 import BikeBox from "@/components/bikeBox";
 const { MongoClient } = require("mongodb");
 
+function bikeRatioCheck(bikes) {
+    var numOfBad = 0;
+    bikes.forEach(bike => {
+        const ratio = bike["Power (hp)"] / bike["Dry weight (kg)"];
+        if(ratio > 0.2) {
+            numOfBad += 1;
+        }
+    });
+    
+    return numOfBad;
+}
 
 export async function getServerSideProps() {
-    // Replace the uri string with your connection string.
     const client = new MongoClient(process.env.MONGODB_URI);
   try {
     await client.connect();
     const database = client.db('test');
     const bikeDB = database.collection('models_images');
-    const query = {Brand:"kawasaki" };
-    const projection = {Images: 0 };
-    const bikeList = await bikeDB.find(query).project(projection).limit(5).toArray();
+    const query = { "Power (hp)": {$lte : 93.88} };
+    const projection = {
+        "Images": 0,
+        "Rating": 0,
+        "Displacement (ccm)": 0,
+        "Torque (Nm)": 0,
+        "Engine cylinder": 0,
+        "Engine stroke": 0,
+        "Gearbox": 0,
+        "Bore (mm)": 0,
+        "Stroke (mm)": 0,
+        "Fuel capacity (lts)": 0,
+        "Fuel system": 0,
+        "Fuel control": 0,
+        "Cooling system": 0,
+        "Transmission type": 0,
+        "Wheelbase (mm)": 0,
+        "Seat height (mm)": 0,
+        "Front brakes": 0,
+        "Rear brakes": 0,
+        "Front tire": 0,
+        "Rear tire": 0,
+        "Front suspension": 0,
+        "Rear suspension": 0,
+        "Color options": 0
+        };
+    
+    const bikeList = await bikeDB.find(query).project(projection).limit(32).toArray();
+    //const badOnes = bikeRatioCheck(bikeList);
+    //console.log(badOnes);
+
     return {
         props: {
           bikeList: JSON.parse(JSON.stringify(bikeList)),
@@ -27,7 +65,6 @@ export async function getServerSideProps() {
 
 
 export default function A2Bikes (props) {
-    //console.log(props.bikeList);
 
     return (
         <div className="a2bikes-page">
@@ -47,14 +84,16 @@ export default function A2Bikes (props) {
                     />
                 </aside>
             </section>
+            
             <div className="bike-grid">
                 {props.bikeList?.map((bike)=> <BikeBox 
                 key={bike._id}
                 id={bike._id}
+                brand={bike.Brand}
                 model={bike.Model} 
                 type={bike.Category} 
                 year={bike.Year}
-                //image={bike.Images[0]}
+                powerHP={bike["Power (hp)"]}
                 />)}
             </div>
         </div>

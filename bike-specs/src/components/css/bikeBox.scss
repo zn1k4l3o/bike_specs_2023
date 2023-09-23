@@ -7,6 +7,7 @@
     padding:8px;
     text-decoration: none;
     color:black;
+    position: relative;
 
     .image-section {
         width:256px;
@@ -45,4 +46,29 @@
 
 .bike-box:hover {
     cursor: pointer;
+}
+
+.red {
+
+    transition: ease-in 0.4s;
+
+    .restrictor-mark {
+        width:24px;
+        height:24px;
+        border-radius: 12px;
+        border:none;
+        background-color: #E41E1E;
+        position: absolute;
+        top:8px;
+        right:8px;
+        z-index: 100;
+    }
+}
+
+.red:hover {
+    background: linear-gradient(180deg, rgba(255,255,255,1) 84%, rgba(228,30,30,1) 100%);
+
+    .restrictor-mark {
+        opacity:0;
+    }
 }
