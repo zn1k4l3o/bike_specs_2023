@@ -1,74 +1,77 @@
 .bike-box {
-    width:272px;
-    height:288px;
-    border:1px solid var(--border-color);
-    border-radius: 8px;
-    box-sizing: border-box;
-    padding:8px;
-    text-decoration: none;
-    color:black;
+  width: 272px;
+  height: 288px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px;
+  text-decoration: none;
+  color: black;
+  position: relative;
+
+  .image-section {
+    width: 256px;
+    height: 220px;
     position: relative;
+  }
 
-    .image-section {
-        width:256px;
-        height:220px;
-        position: relative;
+  h3 {
+    font-size: 20px;
+    height: 20px;
+    width: 256px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .bike-type-year {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 400;
     }
-    
-    h3 {
-        font-size: 20px;
-        height:20px;
-        width:256px;
-        margin-top: 8px;
-        margin-bottom: 4px;
-        font-weight: 400;
-        text-overflow:ellipsis;
-        white-space:nowrap; 
-        overflow: hidden;
+
+    h5 {
+      font-size: 16px;
+      font-weight: 400;
     }
-
-    .bike-type-year {
-        display:flex;
-        justify-content: space-between;
-        height: fit-content;
-
-        h4 {
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        h5 {
-            font-size: 16px;
-            font-weight: 400;
-        }
-    }
+  }
 }
 
 .bike-box:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .red {
+  transition: ease-in 0.4s;
 
-    transition: ease-in 0.4s;
-
-    .restrictor-mark {
-        width:24px;
-        height:24px;
-        border-radius: 12px;
-        border:none;
-        background-color: #E41E1E;
-        position: absolute;
-        top:8px;
-        right:8px;
-        z-index: 100;
-    }
+  .restrictor-mark {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    border: none;
+    background-color: #e41e1e;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 100;
+  }
 }
 
 .red:hover {
-    background: linear-gradient(180deg, rgba(255,255,255,1) 84%, rgba(228,30,30,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 84%,
+    rgba(228, 30, 30, 1) 100%
+  );
 
-    .restrictor-mark {
-        opacity:0;
-    }
+  .restrictor-mark {
+    opacity: 0;
+  }
 }

@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import "./css/searchBar.scss"
-import {useRouter} from "next/navigation"
+import "./css/searchBar.scss";
+import { useRouter } from "next/navigation";
 
-export default function SearchBar () {
-    const router = useRouter();
-    
-    function HandleEnter(value) {
+export default function SearchBar() {
+  const router = useRouter();
 
-        router.push(value);
-    }
-    
+  function HandleEnter(value) {
+    router.push(value);
+  }
 
-    return (
-        <>
-        <input onKeyDown={(e)=> {
-            if(e.key === "Enter") {
-                HandleEnter(e.target.value);
-            }
+  return (
+    <>
+      <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            HandleEnter(e.target.value);
+          }
         }}
         className="search-bar"
-        type="text"/>
-        </>
-    );
+        type="text"
+      />
+    </>
+  );
 }

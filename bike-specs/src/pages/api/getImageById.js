@@ -1,31 +1,28 @@
-const { MongoClient,ObjectId  } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 export default async function handler(req, res) {
   const { itemId } = req.query;
-  //console.log('Request received for itemId:', itemId);
 
   const client = new MongoClient(process.env.MONGODB_URI);
 
   try {
-    //console.log('Connecting to MongoDB...');
     await client.connect();
-    //console.log('Connected to MongoDB.');
 
-    const database = client.db('test');
-    const collection = database.collection('models_images');
+    const database = client.db("test");
+    const collection = database.collection("models_images");
 
     const projection = {
-      "Brand": 0,
-      "Model": 0,
-      "Year": 0,
-      "Category": 0,
-      "Rating": 0,
+      Brand: 0,
+      Model: 0,
+      Year: 0,
+      Category: 0,
+      Rating: 0,
       "Displacement (ccm)": 0,
       "Power (hp)": 0,
       "Torque (Nm)": 0,
       "Engine cylinder": 0,
       "Engine stroke": 0,
-      "Gearbox": 0,
+      Gearbox: 0,
       "Bore (mm)": 0,
       "Stroke (mm)": 0,
       "Fuel capacity (lts)": 0,
@@ -42,24 +39,23 @@ export default async function handler(req, res) {
       "Rear tire": 0,
       "Front suspension": 0,
       "Rear suspension": 0,
-      "Color options": 0
-      };
-    const item = await collection.findOne({ _id: new ObjectId(itemId) },{ projection: projection });
-    //
+      "Color options": 0,
+    };
+    const item = await collection.findOne(
+      { _id: new ObjectId(itemId) },
+      { projection: projection }
+    );
 
     if (!item) {
-      console.log('Item not found');
-      res.status(404).json({ error: 'Item not found' });
+      console.log("Item not found");
+      res.status(404).json({ error: "Item not found" });
     }
 
-    //console.log('Item found:', item);
     res.json(item);
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal server error" });
   } finally {
     await client.close();
-    //console.log('MongoDB connection closed.');
   }
 }
-

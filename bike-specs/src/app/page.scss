@@ -1,43 +1,43 @@
 .home {
-  width:100vw;
+  width: 100vw;
 
   .background-photo {
-    width:100%;
-    height:480px;
+    width: 100%;
+    height: 480px;
     background-image: url("../../public/bike_background.jpg");
-    background-position:50% 45%;
+    background-position: 50% 45%;
     background-size: cover;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 
     section {
-      height:200px;
-      width:560px;
-      display:flex;
-      align-items:center;
+      height: 200px;
+      width: 560px;
+      display: flex;
+      align-items: center;
       flex-direction: column;
-      color:white;
+      color: white;
 
       h1 {
         font-size: 40px;
-        font-weight:500;
-        height:40px;
+        font-weight: 500;
+        height: 40px;
         margin-bottom: 8px;
       }
-      h2{
-        font-size:20px;
+      h2 {
+        font-size: 20px;
         font-weight: 400;
-        margin-bottom:16px;
+        margin-bottom: 16px;
       }
       button {
         background-color: var(--primary-color);
         color: white;
         font-size: 20px;
-        font-weight:500;
-        height:48px;
-        width:128px;
-        border:none;
+        font-weight: 500;
+        height: 48px;
+        width: 128px;
+        border: none;
         border-radius: 8px;
       }
       button:hover {
@@ -47,9 +47,9 @@
   }
 
   .search-home {
-    width:100%;
-    height:contain;
-    display:flex;
+    width: 100%;
+    height: contain;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -60,10 +60,10 @@
   }
 
   .category-pick-home {
-    width:100%;
+    width: 100%;
     max-width: 1136px;
-    margin:0 auto;
-    margin-top:48px;
+    margin: 0 auto;
+    margin-top: 48px;
 
     h2 {
       font-size: 20px;
@@ -71,34 +71,34 @@
     }
 
     .category-grid {
-      margin-top:32px;
-      max-width:1136px;
-      width:100%;
-      display:grid;
-      gap:16px 16px;
+      margin-top: 32px;
+      max-width: 1136px;
+      width: 100%;
+      display: grid;
+      gap: 16px 16px;
       grid-template-columns: repeat(4, 272px);
     }
   }
 
   .about-bikes {
     max-width: 1136px;
-    width:100%;
-    height:354px;
+    width: 100%;
+    height: 354px;
     margin: 48px auto;
-    display:flex;
+    display: flex;
     justify-content: space-between;
 
     aside {
-      max-width:560px;
-      width:50%;
-      height:100%;
+      max-width: 560px;
+      width: 50%;
+      height: 100%;
       position: relative;
     }
-    
+
     article {
-      max-width:576px;
-      width:50%;
-      padding-left:16px;
+      max-width: 576px;
+      width: 50%;
+      padding-left: 16px;
       box-sizing: border-box;
 
       h3 {
@@ -114,14 +114,13 @@
   }
 
   .links-home {
-
-    max-width:1136px;
-    width:100%;
+    max-width: 1136px;
+    width: 100%;
     height: contain;
-    margin:0 auto;
-    display:grid;
+    margin: 0 auto;
+    display: grid;
     gap: 16px 16px;
     grid-template-columns: fit-content(560px) fit-content(560px);
-    margin-bottom:48px;
+    margin-bottom: 48px;
   }
 }
