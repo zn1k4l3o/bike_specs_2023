@@ -1,6 +1,8 @@
 "use client";
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
+import Image from "next/image";
+import "../../styles/bikePage.scss";
 
 export async function getServerSideProps({ resolvedUrl }) {
   const client = new MongoClient(process.env.MONGODB_URI);
@@ -16,9 +18,13 @@ export async function getServerSideProps({ resolvedUrl }) {
       { projection: projection }
     );
 
+    const image = bike["Images"][0];
+    delete bike["Images"];
+
     return {
       props: {
         bike: JSON.parse(JSON.stringify(bike)),
+        image: image,
       },
     };
   } finally {
@@ -26,11 +32,22 @@ export async function getServerSideProps({ resolvedUrl }) {
   }
 }
 
-export default function BikeListFromValue(bike) {
-  console.log(bike);
+export default function BikeListFromValue(props) {
+  console.log(props.image);
   return (
     <div className="bike-info">
-        doraditi
+      <section>
+        <Image
+          style={{ objectFit: "cover" }}
+          src={props.image}
+          alt={props.bike["Brand"] + " " + props.bike["Model"] + " " + props.bike["Year"]}
+          fill
+          sizes="100vw"
+          priority
+        />
+      </section>
+
+
     </div>
   );
 }

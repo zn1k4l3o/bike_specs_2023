@@ -21,7 +21,7 @@ export async function getServerSideProps() {
     await client.connect();
     const database = client.db("test");
     const bikeDB = database.collection("models_images");
-    const query = { "Power (hp)": { $lte: 93.88 } };
+    const query = { "Power (hp)": { $lte: 93.88 }, "Year" : {$gte : 1985}};
     const projection = {
       Images: 0,
       Rating: 0,
@@ -51,7 +51,7 @@ export async function getServerSideProps() {
     const bikeList = await bikeDB
       .find(query)
       .project(projection)
-      .limit(32)
+      .limit(64)
       .toArray();
 
     return {
