@@ -20,11 +20,14 @@ export async function getServerSideProps({ resolvedUrl }) {
     );
 
     const image = bike["Images"][0];
+    const rating = bike["Rating"];
+    delete bike["Rating"];
     delete bike["Images"];
 
     return {
       props: {
         bike: JSON.parse(JSON.stringify(bike)),
+        rating: rating,
         image: image,
       },
     };
@@ -39,33 +42,26 @@ Capitalize na imenu modela, ako ima vise od 3 slova u rijeci onda samo prvo slov
 Za brand treba proc kroz sve brendove u jsonu i zamijeniti sa inacicom iz csv liste brendova i staviti u bazu
 */
 
-export default function BikePage(props) {
-  
-  if (props.bike===null || props.bike===undefined) {
+export default function BikePage({ bike, image }) {
+  if (bike === null || bike === undefined) {
     return <p>Loading...</p>;
   }
 
   return (
     <div className="bike-info">
       <h1>
-        {props.bike["Brand"].toUpperCase() +
+        {bike["Brand"].toUpperCase() +
           " " +
-          props.bike["Model"].toUpperCase() +
+          bike["Model"].toUpperCase() +
           " " +
-          props.bike["Year"]}
+          bike["Year"]}
       </h1>
       <div className="photo-and-links">
         <aside>
           <Image
             style={{ objectFit: "cover" }}
-            src={props.image}
-            alt={
-              props.bike["Brand"] +
-              " " +
-              props.bike["Model"] +
-              " " +
-              props.bike["Year"]
-            }
+            src={image}
+            alt={bike["Brand"] + " " + bike["Model"] + " " + bike["Year"]}
             fill
             sizes="100vw"
             priority
@@ -75,11 +71,11 @@ export default function BikePage(props) {
           <a
             href={
               "https://www.google.com/search?q=" +
-              props.bike["Brand"] +
+              bike["Brand"] +
               "+" +
-              props.bike["Model"] +
+              bike["Model"] +
               "+" +
-              props.bike["Year"]
+              bike["Year"]
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -87,7 +83,7 @@ export default function BikePage(props) {
             <button>Search bike model</button>
           </a>
           <a
-            href={"https://www.google.com/search?q=" + props.bike["Brand"]}
+            href={"https://www.google.com/search?q=" + bike["Brand"]}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -95,7 +91,7 @@ export default function BikePage(props) {
           </a>
         </div>
       </div>
-      <InfoTable bike={props.bike} />
+      <InfoTable bike={bike} />
     </div>
   );
 }
