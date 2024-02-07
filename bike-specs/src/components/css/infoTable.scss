@@ -1,10 +1,11 @@
-.bike-info {
-  width: 100%;
+.bike-table-info {
+  width: 54%;
   font-size: 16px;
   border-collapse: collapse;
-
+  margin-left:16px;
+  box-sizing: border-box;
   tr {
-    height: 30px;
+    height: 48px;
 
     .left-column {
       text-align: right;

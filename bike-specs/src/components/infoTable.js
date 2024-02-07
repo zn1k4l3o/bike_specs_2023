@@ -7,7 +7,7 @@ export default function InfoTable({ bike }) {
   }
 
   return (
-    <table className="bike-info">
+    <table className="bike-table-info">
       <tbody>
         {Object.keys(bike).map((spec, index) => (
           <tr key={index}>

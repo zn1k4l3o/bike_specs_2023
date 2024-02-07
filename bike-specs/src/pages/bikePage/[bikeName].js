@@ -67,31 +67,34 @@ export default function BikePage({ bike, image }) {
             priority
           />
         </aside>
-        <div>
-          <a
-            href={
-              "https://www.google.com/search?q=" +
-              bike["Brand"] +
-              "+" +
-              bike["Model"] +
-              "+" +
-              bike["Year"]
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button>Search bike model</button>
-          </a>
-          <a
-            href={"https://www.google.com/search?q=" + bike["Brand"]}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button>Search manufacturer</button>
-          </a>
-        </div>
+        {/*
+          <div>
+            <a
+              href={
+                "https://www.google.com/search?q=" +
+                bike["Brand"] +
+                "+" +
+                bike["Model"] +
+                "+" +
+                bike["Year"]
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Google bike model</button>
+            </a>
+            <a
+              href={"https://www.google.com/search?q=" + bike["Brand"]}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Google manufacturer</button>
+            </a>
+          </div>
+            */}
+                  <InfoTable bike={bike} />
       </div>
-      <InfoTable bike={bike} />
+
     </div>
   );
 }

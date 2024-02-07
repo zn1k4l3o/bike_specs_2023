@@ -37,7 +37,7 @@ const linkBoxes = [
 
 export default function Home() {
   return (
-    <main className="home">
+    <div className="home">
       <div className="background-photo">
         <section>
           <h1>Bike Specs</h1>
@@ -45,7 +45,7 @@ export default function Home() {
             Welcome to Bike Specs, a site dedicated to providing information on
             specifications of bikes from variety of manufacturers.
           </h2>
-          <Link href="/">
+          <Link href="/list/0">
             <button>View All</button>
           </Link>
         </section>
@@ -95,6 +95,6 @@ export default function Home() {
           />
         ))}
       </div>
-    </main>
+    </div>
   );
 }
